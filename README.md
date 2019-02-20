@@ -1,6 +1,6 @@
 # Clockout-App
 
-[Check it out!](https://helloimdavidhaha.github.io/Clockout-App/);
+[Check it out!](https://helloimdavidhaha.github.io/Clockout-App/)
 
 I always forget what time i'm supposed to clock out at work.
 
