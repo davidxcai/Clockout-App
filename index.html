@@ -6,23 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Clock-Out.</title>
-    <!--reset css-->
-    <link rel="stylesheet" href="./assets/style/reset.css">
-    <!--jquery cdn-->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
     <!--bootstrap cdn-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-        crossorigin="anonymous">
-    <!--custom css-->
-    <!-- <link rel="stylesheet" href="./assets/style/style.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!--jquery cdn-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
     <!--font awesome-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <style>
         body {
-        background-color: black;
-    }
+            background-color: black;
+        }
     </style>
 </head>
 
@@ -35,46 +37,55 @@
         </div>
     </div>
     <div class="container d-flex justify-content-center">
-        <div class="card text-center" style="width: 20rem;">
+        <div class="card text-center text-white bg-dark" style="width: 20rem;">
             <div class="card-body">
                 <h5 class="card-title">Clock-In Time:</h5>
-                <!-- <div class="col-10">
-                    <input class="form-control" type="time" value="00:00" id="clockInTime">
-                </div> -->
-                <div class="row">
-                    <!--Hour Input-->
-                    <div class="col-md-6">
-                        <div class="input-group mb-3">
-                            <input type="number" id="ch" class="form-control" aria-label="Clock-in Hour" placeholder="Hour"
-                                aria-describedby="inputGroup-sizing-default" min="1" max="12"required>
+                <form class="needs-validation" novalidate>
+                    <div class="row">
+                        <!--Hour Input-->
+                        <div class="col-md-6">
+                            <div class="input-group mb-3">
+                                <input type="number" id="ch" class="form-control" aria-label="Clock-in Hour"
+                                    placeholder="Hour" aria-describedby="inputGroup-sizing-default" min="1" max="12"
+                                    required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid number.
+                                </div>
+                            </div>
+                        </div>
+                        <!--Minut Input-->
+                        <div class="col-md-6">
+                            <div class="input-group mb-3">
+                                <input type="number" id="cm" class="form-control" aria-label="Clock-in Minute"
+                                    placeholder="Minute" aria-describedby="inputGroup-sizing-default" min="0" max="59">
+                            </div>
                         </div>
                     </div>
-                    <!--Minut Input-->
-                    <div class="col-md-6">
-                        <div class="input-group mb-3">
-                            <input type="number" id="cm" class="form-control" aria-label="Clock-in Minute" placeholder="Minute"
-                                aria-describedby="inputGroup-sizing-default" min="0" max="59">
-                        </div>
-                    </div>
-                </div>
+                </form>
                 <h5 class="card-title">Hours Working:</h5>
-                <div class="row">
-                    <!--Hour Input-->
-                    <div class="col-md-6">
-                        <div class="input-group mb-3">
-                            <input type="number" id="wh" class="form-control" aria-label="Hours Working"
-                                placeholder="Hours" aria-describedby="inputGroup-sizing-default" required min='0' max="24">
+                <form class="needs-validation" novalidate>
+                    <div class="row">
+                        <!--Hour Input-->
+                        <div class="col-md-6">
+                            <div class="input-group mb-3">
+                                <input type="number" id="wh" class="form-control" aria-label="Hours Working"
+                                    placeholder="Hours" aria-describedby="inputGroup-sizing-default" required min='0'
+                                    max="24">
+                                <div class="invalid-feedback">
+                                    Please enter a valid number.
+                                </div>
+                            </div>
+                        </div>
+                        <!--Minut Input-->
+                        <div class="col-md-6">
+                            <div class="input-group mb-3">
+                                <input type="number" id="wm" class="form-control" aria-label="Minutes Working"
+                                    placeholder="Minutes" aria-describedby="inputGroup-sizing-default" min="0" max="59">
+                            </div>
                         </div>
                     </div>
-                    <!--Minut Input-->
-                    <div class="col-md-6">
-                        <div class="input-group mb-3">
-                            <input type="number" id="wm" class="form-control" aria-label="Minutes Working"
-                                placeholder="Minutes" aria-describedby="inputGroup-sizing-default" min="0" max="59">
-                        </div>
-                    </div>
-                </div>
-                <button class="btn btn-dark mt-2 mb-3" id="goBtn">Tell Me</button>
+                </form>
+                <button class="btn btn-info mt-2 mb-3" id="goBtn">Tell Me</button>
                 <h5 class="card-title">Clock-Out Time:</h5>
                 <div>
                     <h1 id="clockOutDisplay">
@@ -84,11 +95,10 @@
             </div>
         </div>
     </div>
-    <footer class="text-center text-light mb-3" style="position: fixed; bottom: 0; width: 100%;">
+    <footer class="text-center text-light my-3" style="bottom: 0; width: 100%;">
         <p>&copy; 2019 Dafydd Zephyr</p>
     </footer>
-
-    <script src="./assets/javascript/clockout.js"></script>
+    <script src="./js/clockout.js"></script>
 </body>
 
 </html>
