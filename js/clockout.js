@@ -12,15 +12,15 @@ $(() => {
         }
         for (var i = 0; i < wh; i++) {
             ch++;
-            if (ch > 12) {
-                ch = ch - 12;
-            }
         }
         for (var i = 0; i < wm; i++) {
             cm++;
             if (cm === 60) {
                 ch += 1;
                 cm = 0;
+            }
+            if (ch > 12) {
+                ch = ch - 12;
             }
         }
         if (cm < 10) {
