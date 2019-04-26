@@ -6,17 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Clock-Out.</title>
-    <!--bootstrap cdn-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!--jquery cdn-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <!--font awesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
@@ -25,77 +23,78 @@
         body {
             background-color: black;
         }
+
+        #main {
+            display: flex;
+            justify-content: center;
+        }
+
+        .input-field input[type=number]:focus+label {
+            color: #1565c0 !important;
+        }
+
+        .input-field input[type=number]:focus {
+            border-bottom: 1px solid #1565c0 !important;
+            box-shadow: 0 1px 0 0 #1565c0 !important;
+        }
+
+        input {
+            color: #ccc;
+        }
     </style>
 </head>
 
 <body>
-    <div class="container text-center">
+    <div class="container center-align grey-text text-lighten-3" id="main">
         <div>
-            <h1 class="text-light my-5">
+            <h3>
                 Clock-<i class="far fa-clock"></i>ut.
-            </h1>
-        </div>
-    </div>
-    <div class="container d-flex justify-content-center">
-        <div class="card text-center text-white bg-dark" style="width: 20rem;">
-            <div class="card-body">
-                <h5 class="card-title">Clock-In Time:</h5>
-                <form class="needs-validation" novalidate>
-                    <div class="row">
-                        <!--Hour Input-->
-                        <div class="col-md-6">
-                            <div class="input-group mb-3">
-                                <input type="number" id="ch" class="form-control" aria-label="Clock-in Hour"
-                                    placeholder="Hour" aria-describedby="inputGroup-sizing-default" min="1" max="12"
-                                    required>
-                                <div class="invalid-feedback">
-                                    Please enter a valid number.
-                                </div>
+            </h3>
+            <div class="card blue-grey darken-4" style="width: 20rem;">
+                <div class="card-content">
+                    <h5 class="card-title">Clock-In Time:</h5>
+                    <form class="needs-validation" novalidate>
+                        <div class="row">
+                            <!--Hour Input-->
+                            <div class="input-field col s6">
+                                <input id="ch" type="number">
+                                <label for="ch">Hour</label>
+                            </div>
+                            <!--Minute Input-->
+                            <div class="input-field col s6">
+                                <input id="cm" type="number">
+                                <label for="cm">Minute</label>
                             </div>
                         </div>
-                        <!--Minut Input-->
-                        <div class="col-md-6">
-                            <div class="input-group mb-3">
-                                <input type="number" id="cm" class="form-control" aria-label="Clock-in Minute"
-                                    placeholder="Minute" aria-describedby="inputGroup-sizing-default" min="0" max="59">
+                    </form>
+                    <h5 class="card-title">Hours Working:</h5>
+                    <form class="needs-validation" novalidate>
+                        <div class="row">
+                            <!--Hour Input-->
+                            <div class="input-field col s6">
+                                <input id="wh" type="number">
+                                <label for="wh">Hour</label>
+                            </div>
+                            <!--Minute Input-->
+                            <div class="input-field col s6">
+                                <input id="wm" type="number">
+                                <label for="wm">Minute</label>
                             </div>
                         </div>
+                    </form>
+                    <button class="waves-effect waves-light btn blue-grey" id="goBtn" type='submit'>Tell Me</button>
+                    <h5 class="card-title">Clock-Out Time:</h5>
+                    <div>
+                        <h3 id="clockOutDisplay">
+                            0:00
+                            <!--Displays clock-out time here-->
+                        </h3>
                     </div>
-                </form>
-                <h5 class="card-title">Hours Working:</h5>
-                <form class="needs-validation" novalidate>
-                    <div class="row">
-                        <!--Hour Input-->
-                        <div class="col-md-6">
-                            <div class="input-group mb-3">
-                                <input type="number" id="wh" class="form-control" aria-label="Hours Working"
-                                    placeholder="Hours" aria-describedby="inputGroup-sizing-default" required min='0'
-                                    max="24">
-                                <div class="invalid-feedback">
-                                    Please enter a valid number.
-                                </div>
-                            </div>
-                        </div>
-                        <!--Minut Input-->
-                        <div class="col-md-6">
-                            <div class="input-group mb-3">
-                                <input type="number" id="wm" class="form-control" aria-label="Minutes Working"
-                                    placeholder="Minutes" aria-describedby="inputGroup-sizing-default" min="0" max="59">
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <button class="btn btn-info mt-2 mb-3" id="goBtn">Tell Me</button>
-                <h5 class="card-title">Clock-Out Time:</h5>
-                <div>
-                    <h1 id="clockOutDisplay">
-                        <!--Displays clock-out time here-->
-                    </h1>
                 </div>
             </div>
         </div>
     </div>
-    <footer class="text-center text-light my-3" style="bottom: 0; width: 100%;">
+    <footer class="center-align white-text" style="bottom: 0; width: 100%;">
         <p>&copy; 2019 Dafydd Zephyr</p>
     </footer>
     <script src="./js/clockout.js"></script>

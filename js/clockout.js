@@ -1,19 +1,19 @@
 $(() => {
-    var display = $("#clockOutDisplay");
-    var button = $("#goBtn");
+    const display = $("#clockOutDisplay");
+    const button = $("#goBtn");
 
-    function calculate() {
-        var ch = Number($('#ch').val());
-        var cm = Number($('#cm').val());
-        var wh = Number($('#wh').val());
-        var wm = Number($('#wm').val());
+    calculate = () => {
+        let ch = Number($('#ch').val());
+        let cm = Number($('#cm').val());
+        let wh = Number($('#wh').val());
+        let wm = Number($('#wm').val());
         if (wh >= 6 && wm > 0 || wh > 6) {
             wm += 30;
         }
-        for (var i = 0; i < wh; i++) {
+        for (let i = 0; i < wh; i++) {
             ch++;
         }
-        for (var i = 0; i < wm; i++) {
+        for (let i = 0; i < wm; i++) {
             cm++;
             if (cm === 60) {
                 ch += 1;
@@ -23,19 +23,16 @@ $(() => {
                 ch = ch - 12;
             }
         }
-        if (cm < 10) {
-            display.text(ch + ':0' + cm);
-        }
-        else {
-            display.text(ch + ':' + cm);
-        }
+        let time;
+        cm < 10 ? time = ch + ':0' + cm : time = ch + ':' + cm;
+        display.text(time);
     }
 
-    button.click(function () {
+    button.click(() => {
         calculate();
     });
 
-    $(document).on('keypress', function (e) {
+    $(document).on('keypress', e => {
         if (e.which == 13) {
             calculate();
         }
