@@ -3,15 +3,11 @@ $(() => {
     const button = $("#goBtn");
 
     calculate = () => {
-        let ch = Number($('#ch').val());
+        let ch = Number($('#ch').val()) + Number($('#wh').val());
         let cm = Number($('#cm').val());
-        let wh = Number($('#wh').val());
         let wm = Number($('#wm').val());
         if (wh >= 6 && wm > 0 || wh > 6) {
             wm += 30;
-        }
-        for (let i = 0; i < wh; i++) {
-            ch++;
         }
         for (let i = 0; i < wm; i++) {
             cm++;
@@ -19,9 +15,9 @@ $(() => {
                 ch += 1;
                 cm = 0;
             }
-            if (ch > 12) {
-                ch = ch - 12;
-            }
+        }
+        if (ch > 12) {
+            ch = ch - 12;
         }
         let time;
         cm < 10 ? time = ch + ':0' + cm : time = ch + ':' + cm;
