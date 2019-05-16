@@ -3,9 +3,10 @@ $(() => {
     const button = $("#goBtn");
 
     calculate = () => {
-        let ch = Number($('#ch').val()) + Number($('#wh').val());
-        let cm = Number($('#cm').val());
+        let wh = Number($('#wh').val());
         let wm = Number($('#wm').val());
+        let ch = Number($('#ch').val()) + wh;
+        let cm = Number($('#cm').val());
         if (wh >= 6 && wm > 0 || wh > 6) {
             wm += 30;
         }
