@@ -17,7 +17,7 @@ $(() => {
             }
         }
         if (ch > 12) {
-            ch = ch - 12;
+            ch -= 12;
         }
         let time;
         cm < 10 ? time = ch + ':0' + cm : time = ch + ':' + cm;
