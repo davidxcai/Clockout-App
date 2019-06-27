@@ -7,19 +7,20 @@ $(() => {
 
     calculate = () => {
         let wh = Number($('#wh').val());
-        let wm = Number($('#wm').val());
+        let wm = Math.round(Number($('#wm').val()) / 15) * 15;
         let ch = Number($('#ch').val()) + wh;
-        let cm = Number($('#cm').val());
+        let cm = Math.round(Number($('#cm').val()) / 15) * 15;
+        // lunch decider
         if (wh >= 6 && wm > 0 || wh > 6) {
             wm += 30;
         }
-        for (let i = 0; i < wm; i++) {
-            cm++;
-            if (cm === 60) {
-                ch += 1;
-                cm = 0;
-            }
+        let fm = wm + cm - 7;
+        if (fm < 0) {
+            ch -= 1;
+            fm = 53;
         }
+
+        // keeps time in 12 hour format
         if (ch > 12) {
             ch -= 12;
         }

@@ -7,29 +7,36 @@ $(() => {
 
     calculate = () => {
         let wh = Number($('#wh').val());
-        let wm = Number($('#wm').val()) - 7;
+        let wm = Math.round(Number($('#wm').val()) / 15) * 15;
         let ch = Number($('#ch').val()) + wh;
         let cm = Math.round(Number($('#cm').val()) / 15) * 15;
-        console.log(`work minutes ${cm}`);
+        // lunch decider
         if (wh >= 6 && wm > 0 || wh > 6) {
             wm += 30;
-        }
-        for (let i = 0; i < wm; i++) {
-            cm++;
-            if (cm === 60) {
+            if (wm > 60) {
+                wm -= 60;
                 ch += 1;
-                cm = 0;
             }
         }
-        if (cm === 0) {
-            cm = 53;
+        let fm = wm + cm - 7;
+        if (fm > 59) {
+            ch += 1;
+            fm -= 60;
+        }
+        else if (fm < 0) {
             ch -= 1;
+            fm = 53;
         }
+
+        // keeps time in 12 hour format
         if (ch > 12) {
-            ch = ch - 12;
+            ch -= 12;
         }
+        // console.log(`Clock in time is: ${ch - wh + 12}:${cm}
+        // \nYou're working ${wh} hours and ${wm ? wm : 0} minutes
+        // `)
         let time;
-        cm < 10 ? time = ch + ':0' + cm : time = ch + ':' + cm;
+        fm < 10 ? time = ch + ':0' + fm : time = ch + ':' + fm;
         display.text(time);
     }
 
