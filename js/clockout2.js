@@ -38,6 +38,7 @@ $(() => {
         let time;
         fm < 10 ? time = ch + ':0' + fm : time = ch + ':' + fm;
         display.text(time);
+        
     }
 
     button.click(() => {
