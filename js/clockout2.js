@@ -8,8 +8,8 @@ $(() => {
     calculate = () => {
         let wh = Number($('#wh').val());
         let wm = Math.round(Number($('#wm').val()) / 15) * 15;
-        let ch = Number($('#ch').val()) + wh;
-        let cm = Math.round(Number($('#cm').val()) / 15) * 15;
+        let ch = Number($('#ch').val()) % 12 + wh;
+        let cm = Math.round(Number($('#cm').val() % 60) / 15) * 15;
         // lunch decider
         if (wh >= 6 && wm > 0 || wh > 6) {
             wm += 30;
