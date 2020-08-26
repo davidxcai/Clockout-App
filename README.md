@@ -20,4 +20,4 @@ I developed this app for a very particular reason which is to prevent time-adjus
 * Materialize
 
 ## Made By
-Dafydd Zephyr
+David Cai
